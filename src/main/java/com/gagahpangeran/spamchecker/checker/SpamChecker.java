@@ -6,9 +6,10 @@ import java.util.ArrayList;
 
 public class SpamChecker {
     private static double SPAM_PROBABILITY_THRESHOLD = 0.7;
-    private ArrayList<Email> emails = new ArrayList<>();
+    private ArrayList<Email> emails;
 
     public SpamChecker(String[] data) {
+        this.emails = new ArrayList<>();
         this.processData(data);
     }
 
