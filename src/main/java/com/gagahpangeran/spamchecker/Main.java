@@ -12,6 +12,7 @@ public class Main {
 
     public static void main(String[] args) {
         SpamChecker checker = new SpamChecker(data);
+        checker.calculateSpamProbability();
         checker.getVerdict();
     }
 }
