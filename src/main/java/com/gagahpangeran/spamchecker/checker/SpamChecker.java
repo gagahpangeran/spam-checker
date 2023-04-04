@@ -18,6 +18,20 @@ public class SpamChecker {
         this.processData(data);
     }
 
+    public void calculateSpamProbability() {
+        for (int i = 0; i < emails.size() - 1; i++) {
+            for (int j = i + 1; j < emails.size(); j++) {
+                Email email1 = emails.get(i);
+                Email email2 = emails.get(j);
+
+                double similarity = comparator.getSimilarity(email1.getContent(), email2.getContent());
+
+                email1.addSimilarityScore(similarity);
+                email2.addSimilarityScore(similarity);
+            }
+        }
+    }
+
     public void getVerdict() {
         for (Email email : emails) {
             System.out.println("Email id : " + email.getId());
