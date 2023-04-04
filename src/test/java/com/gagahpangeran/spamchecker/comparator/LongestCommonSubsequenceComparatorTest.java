@@ -19,8 +19,8 @@ public class LongestCommonSubsequenceComparatorTest {
 
     @Test
     void textsShouldNotBeSimilar() {
-        String text1 = "abcd";
-        String text2 = "efgh";
+        String text1 = "This is a text";
+        String text2 = "Hello world";
 
         double score = comparator.getSimilarity(text1, text2);
 
@@ -29,28 +29,28 @@ public class LongestCommonSubsequenceComparatorTest {
 
     @Test
     void textsShouldHaveHighSimilarity() {
-        String text1 = "Hello world!";
-        String text2 = "Hello to the world!";
+        String text1 = "This is a text";
+        String text2 = "This is not a text";
 
         double score = comparator.getSimilarity(text1, text2);
 
         // The LCS is the text1 itself, so the expected score is
-        // length of text1 divided by length of text2 = 12/19
-        double expectedScore = 0.631578947368421;
+        // word count of text1 divided by word count of text2 = 4/5
+        double expectedScore = 0.8;
 
         Assertions.assertEquals(expectedScore, score, epsilon);
     }
 
     @Test
     void textsShouldHaveLowSimilarity() {
-        String text1 = "Good morning";
-        String text2 = "Java is sick!";
+        String text1 = "My name is GPR";
+        String text2 = "This is not your house";
 
         double score = comparator.getSimilarity(text1, text2);
 
-        // The LCS is ' i' (2 characters), so the expected score is
-        // length of LCS divided by length of text2 = 2/13
-        double expectedScore = 0.15384615384615385;
+        // The LCS is 'is' (1 word), so the expected score is
+        // word count of LCS divided by length of text2 = 1/5
+        double expectedScore = 0.2;
 
         Assertions.assertEquals(expectedScore, score, epsilon);
     }
