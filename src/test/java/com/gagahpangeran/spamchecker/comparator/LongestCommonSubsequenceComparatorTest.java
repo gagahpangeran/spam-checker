@@ -14,7 +14,7 @@ public class LongestCommonSubsequenceComparatorTest {
 
         double score = comparator.getSimilarity(text1, text2);
 
-        Assertions.assertEquals(score, 1, epsilon);
+        Assertions.assertEquals(1, score, epsilon);
     }
 
     @Test
@@ -24,7 +24,7 @@ public class LongestCommonSubsequenceComparatorTest {
 
         double score = comparator.getSimilarity(text1, text2);
 
-        Assertions.assertEquals(score, 0, epsilon);
+        Assertions.assertEquals(0, score, epsilon);
     }
 
     @Test
@@ -38,7 +38,7 @@ public class LongestCommonSubsequenceComparatorTest {
         // length of text1 divided by length of text2 = 12/19
         double expectedScore = 0.631578947368421;
 
-        Assertions.assertEquals(score, expectedScore, epsilon);
+        Assertions.assertEquals(expectedScore, score, epsilon);
     }
 
     @Test
@@ -52,6 +52,6 @@ public class LongestCommonSubsequenceComparatorTest {
         // length of LCS divided by length of text2 = 2/13
         double expectedScore = 0.15384615384615385;
 
-        Assertions.assertEquals(score, expectedScore, epsilon);
+        Assertions.assertEquals(expectedScore, score, epsilon);
     }
 }
