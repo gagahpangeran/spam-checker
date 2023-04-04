@@ -34,10 +34,12 @@ public class SpamChecker {
 
     public void getVerdict() {
         for (Email email : emails) {
-            System.out.println("Email id : " + email.getId());
-            System.out.println("Email content : " + email.getContent());
-            System.out.println("Email verdict : " +
+            System.out.println("ID : " + email.getId());
+            System.out.println("Content : " + email.getContent());
+            System.out.println("Spam probability : " + email.getSpamProbability());
+            System.out.println("Verdict : " +
                     (email.getSpamProbability() >= SPAM_PROBABILITY_THRESHOLD ? "Spam" : "Not Spam"));
+            System.out.println();
         }
     }
 
