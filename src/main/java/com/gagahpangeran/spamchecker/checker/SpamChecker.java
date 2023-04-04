@@ -1,5 +1,7 @@
 package com.gagahpangeran.spamchecker.checker;
 
+import com.gagahpangeran.spamchecker.comparator.LongestCommonSubsequenceComparator;
+import com.gagahpangeran.spamchecker.comparator.TextComparator;
 import com.gagahpangeran.spamchecker.model.Email;
 
 import java.util.ArrayList;
@@ -8,8 +10,11 @@ public class SpamChecker {
     private static double SPAM_PROBABILITY_THRESHOLD = 0.7;
     private ArrayList<Email> emails;
 
+    TextComparator comparator;
+
     public SpamChecker(String[] data) {
         this.emails = new ArrayList<>();
+        this.comparator = new LongestCommonSubsequenceComparator();
         this.processData(data);
     }
 
