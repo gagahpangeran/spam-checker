@@ -1,6 +1,7 @@
 package com.gagahpangeran.spamchecker.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Email {
     private int id;
@@ -28,6 +29,15 @@ public class Email {
     }
 
     public double getSpamProbability() {
-        return this.spamProbability;
+        if (similarityScores.size() == 0)
+            return 0;
+
+        Collections.sort(similarityScores);
+        int mid = similarityScores.size() / 2;
+
+        if (similarityScores.size() == 1)
+            return similarityScores.get(mid);
+
+        return (similarityScores.get(mid) + similarityScores.get(mid - 1)) / 2;
     }
 }
