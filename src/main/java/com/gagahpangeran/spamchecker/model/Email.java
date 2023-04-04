@@ -6,13 +6,11 @@ import java.util.Collections;
 public class Email {
     private int id;
     private String content;
-    private double spamProbability;
     private ArrayList<Double> similarityScores;
 
     public Email(int id, String content) {
         this.id = id;
         this.content = content;
-        this.spamProbability = 0;
         this.similarityScores = new ArrayList<>();
     }
 
