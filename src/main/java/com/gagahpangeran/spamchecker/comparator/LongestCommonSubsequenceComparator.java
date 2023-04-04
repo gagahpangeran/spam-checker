@@ -1,15 +1,10 @@
 package com.gagahpangeran.spamchecker.comparator;
 
-public class LongestCommonSubsequenceComparator implements TextComparator {
+public class LongestCommonSubsequenceComparator extends AbstractTextComparator {
     @Override
     public double getSimilarity(String text1, String text2) {
-        // convert to lowercase and remove punctuation
-        text1 = text1.toLowerCase().replaceAll("\\p{Punct}", "");
-        text2 = text2.toLowerCase().replaceAll("\\p{Punct}", "");
-
-        // split text by whitespace into array
-        String[] t1Arr = text1.split("\\s+");
-        String[] t2Arr = text2.split("\\s+");
+        String[] t1Arr = this.processString(text1);
+        String[] t2Arr = this.processString(text2);
 
         int t1Len = t1Arr.length;
         int t2Len = t2Arr.length;
