@@ -9,18 +9,18 @@ public class CosineSimilarityComparator extends AbstractTextComparator {
         String[] t1Arr = this.processString(text1);
         String[] t2Arr = this.processString(text2);
 
-        HashMap<String, Integer> t1Counter = getWordCount(t1Arr);
-        HashMap<String, Integer> t2Counter = getWordCount(t2Arr);
+        HashMap<String, Integer> t1WordCount = getWordCount(t1Arr);
+        HashMap<String, Integer> t2WordCount = getWordCount(t2Arr);
 
-        double dotProduct = calculateDotProduct(t1Counter, t2Counter);
+        double dotProduct = calculateDotProduct(t1WordCount, t2WordCount);
 
         double norm1 = 0;
-        for (Integer value : t1Counter.values()) {
+        for (Integer value : t1WordCount.values()) {
             norm1 += Math.pow(value, 2);
         }
 
         double norm2 = 0;
-        for (Integer value : t2Counter.values()) {
+        for (Integer value : t2WordCount.values()) {
             norm2 += Math.pow(value, 2);
         }
 
