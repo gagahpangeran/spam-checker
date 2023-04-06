@@ -1,5 +1,6 @@
 package com.gagahpangeran.spamchecker.checker;
 
+import com.gagahpangeran.spamchecker.comparator.CosineSimilarityComparator;
 import com.gagahpangeran.spamchecker.comparator.LongestCommonSubsequenceComparator;
 import com.gagahpangeran.spamchecker.comparator.TextComparator;
 import com.gagahpangeran.spamchecker.model.Email;
@@ -16,6 +17,17 @@ public class SpamChecker {
         this.emails = new ArrayList<>();
         this.comparator = new LongestCommonSubsequenceComparator();
         this.processData(data);
+    }
+
+    public void setTextComparatorMethod(TextComparatorMethod method) {
+        switch (method) {
+            case LCS:
+                comparator = new LongestCommonSubsequenceComparator();
+                break;
+            case CosineSimilarity:
+                comparator = new CosineSimilarityComparator();
+                break;
+        }
     }
 
     public void calculateSpamProbability() {
