@@ -24,5 +24,10 @@ public class Main {
         checker.setTextComparatorMethod(TextComparatorMethod.CosineSimilarity);
         checker.calculateSpamProbability();
         checker.printVerdict();
+
+        checker.setTextComparatorMethod(TextComparatorMethod.LCS);
+        checker.setSpamThreshold(0.5);
+        checker.calculateSpamProbability();
+        checker.printVerdict();
     }
 }
