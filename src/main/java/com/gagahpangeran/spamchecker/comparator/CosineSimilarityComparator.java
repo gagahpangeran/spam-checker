@@ -15,18 +15,10 @@ public class CosineSimilarityComparator extends AbstractTextComparator {
         HashMap<String, Integer> t2WordCount = getWordCount(t2Arr);
 
         double dotProduct = calculateDotProduct(t1WordCount, t2WordCount);
+        double t1Magnitude = calculateMagnitude(t1WordCount);
+        double t2Magnitude = calculateMagnitude(t2WordCount);
 
-        double norm1 = 0;
-        for (Integer value : t1WordCount.values()) {
-            norm1 += Math.pow(value, 2);
-        }
-
-        double norm2 = 0;
-        for (Integer value : t2WordCount.values()) {
-            norm2 += Math.pow(value, 2);
-        }
-
-        double similarity = dotProduct / (Math.sqrt(norm1) * Math.sqrt(norm2));
+        double similarity = dotProduct / (t1Magnitude * t2Magnitude);
 
         return similarity;
     }
@@ -52,5 +44,13 @@ public class CosineSimilarityComparator extends AbstractTextComparator {
         }
 
         return result;
+    }
+
+    private double calculateMagnitude(HashMap<String, Integer> wordCount) {
+        double magnitude = 0;
+        for (Integer value : wordCount.values()) {
+            magnitude += Math.pow(value, 2);
+        }
+        return Math.sqrt(magnitude);
     }
 }
