@@ -12,9 +12,9 @@ public class SpamChecker {
 
     private double spamThreshold;
 
-    TextComparatorMethod method;
+    private TextComparatorMethod method;
 
-    TextComparator comparator;
+    private TextComparator comparator;
 
     public SpamChecker(String[] data) {
         this(data, 0.6, TextComparatorMethod.LCS);
