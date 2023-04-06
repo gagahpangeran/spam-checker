@@ -17,7 +17,7 @@ public class SpamChecker {
     TextComparator comparator;
 
     public SpamChecker(String[] data) {
-        this(data, 0.7, TextComparatorMethod.LCS);
+        this(data, 0.6, TextComparatorMethod.LCS);
     }
 
     public SpamChecker(String[] data, double spamThreshold, TextComparatorMethod method) {
