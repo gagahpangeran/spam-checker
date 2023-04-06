@@ -7,6 +7,10 @@ public class Main {
     private static String[] data = new String[] {
             "This is a spam email",
             "This is not a spam email",
+            "This is not my spam email",
+            "This is not your email",
+            "This is your email",
+            "This is my spam email",
             "Hello how are you?",
             "What a great day today",
     };
