@@ -44,6 +44,14 @@ public class SpamChecker {
         }
     }
 
+    public double getSpamThreshold() {
+        return this.spamThreshold;
+    }
+
+    public ArrayList<Email> getEmails() {
+        return this.emails;
+    }
+
     public void calculateSpamProbability() {
         for (int i = 0; i < emails.size() - 1; i++) {
             for (int j = i + 1; j < emails.size(); j++) {
