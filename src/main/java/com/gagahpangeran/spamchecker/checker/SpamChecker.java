@@ -12,6 +12,8 @@ public class SpamChecker {
 
     private double spamThreshold;
 
+    TextComparatorMethod method;
+
     TextComparator comparator;
 
     public SpamChecker(String[] data) {
@@ -30,6 +32,8 @@ public class SpamChecker {
     }
 
     public void setTextComparatorMethod(TextComparatorMethod method) {
+        this.method = method;
+
         switch (method) {
             case LCS:
                 comparator = new LongestCommonSubsequenceComparator();
