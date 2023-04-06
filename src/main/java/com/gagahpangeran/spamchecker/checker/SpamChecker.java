@@ -8,20 +8,25 @@ import com.gagahpangeran.spamchecker.model.Email;
 import java.util.ArrayList;
 
 public class SpamChecker {
-    private static double SPAM_PROBABILITY_THRESHOLD = 0.7;
-
     private ArrayList<Email> emails;
+
+    private double spamThreshold;
 
     TextComparator comparator;
 
     public SpamChecker(String[] data) {
-        this(data, TextComparatorMethod.LCS);
+        this(data, 0.7, TextComparatorMethod.LCS);
     }
 
-    public SpamChecker(String[] data, TextComparatorMethod method) {
+    public SpamChecker(String[] data, double spamThreshold, TextComparatorMethod method) {
         this.emails = new ArrayList<>();
+        this.setSpamThreshold(spamThreshold);
         this.setTextComparatorMethod(method);
         this.processData(data);
+    }
+
+    public void setSpamThreshold(double spamThreshold) {
+        this.spamThreshold = spamThreshold;
     }
 
     public void setTextComparatorMethod(TextComparatorMethod method) {
@@ -55,7 +60,7 @@ public class SpamChecker {
             System.out.println("Content : " + email.getContent());
             System.out.println("Spam probability : " + email.getSpamProbability());
             System.out.println("Verdict : " +
-                    (email.getSpamProbability() >= SPAM_PROBABILITY_THRESHOLD ? "Spam" : "Not Spam"));
+                    (email.getSpamProbability() >= spamThreshold? "Spam" : "Not Spam"));
             System.out.println();
         }
     }
