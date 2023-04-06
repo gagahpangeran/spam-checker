@@ -15,10 +15,10 @@ public class Main {
         SpamChecker checker = new SpamChecker(data);
 
         checker.calculateSpamProbability();
-        checker.getVerdict();
+        checker.printVerdict();
 
         checker.setTextComparatorMethod(TextComparatorMethod.CosineSimilarity);
         checker.calculateSpamProbability();
-        checker.getVerdict();
+        checker.printVerdict();
     }
 }

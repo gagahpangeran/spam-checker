@@ -49,7 +49,7 @@ public class SpamChecker {
         }
     }
 
-    public void getVerdict() {
+    public void printVerdict() {
         for (Email email : emails) {
             System.out.println("ID : " + email.getId());
             System.out.println("Content : " + email.getContent());
