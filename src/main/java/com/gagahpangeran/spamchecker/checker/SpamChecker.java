@@ -59,14 +59,24 @@ public class SpamChecker {
     }
 
     public void printVerdict() {
+        int spamCounter = 0;
+        System.out.println("----------------------");
+        System.out.println("Spam Checker Result");
         for (Email email : emails) {
+            boolean isSpam = email.getSpamProbability() >= spamThreshold;
+            spamCounter += isSpam ? 1 : 0;
+
             System.out.println("ID : " + email.getId());
             System.out.println("Content : " + email.getContent());
             System.out.println("Spam probability : " + email.getSpamProbability());
-            System.out.println("Verdict : " +
-                    (email.getSpamProbability() >= spamThreshold? "Spam" : "Not Spam"));
+            System.out.println("Verdict : " + (isSpam ? "Spam" : "Not Spam"));
             System.out.println();
         }
+
+        System.out.println("Text comparator method : " + this.method);
+        System.out.println("Spam Probability Threshold : " + this.spamThreshold);
+        System.out.println(spamCounter + " spam email(s) of " + emails.size() + " email(s)");
+        System.out.println("----------------------");
     }
 
     private void processData(String[] data) {
