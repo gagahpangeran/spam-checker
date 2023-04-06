@@ -1,6 +1,7 @@
 package com.gagahpangeran.spamchecker;
 
 import com.gagahpangeran.spamchecker.checker.SpamChecker;
+import com.gagahpangeran.spamchecker.checker.TextComparatorMethod;
 
 public class Main {
     private static String[] data = new String[] {
@@ -12,6 +13,11 @@ public class Main {
 
     public static void main(String[] args) {
         SpamChecker checker = new SpamChecker(data);
+
+        checker.calculateSpamProbability();
+        checker.getVerdict();
+
+        checker.setTextComparatorMethod(TextComparatorMethod.CosineSimilarity);
         checker.calculateSpamProbability();
         checker.getVerdict();
     }
