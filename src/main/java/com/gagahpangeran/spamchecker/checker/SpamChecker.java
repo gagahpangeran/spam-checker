@@ -9,13 +9,18 @@ import java.util.ArrayList;
 
 public class SpamChecker {
     private static double SPAM_PROBABILITY_THRESHOLD = 0.7;
+
     private ArrayList<Email> emails;
 
     TextComparator comparator;
 
     public SpamChecker(String[] data) {
+        this(data, TextComparatorMethod.LCS);
+    }
+
+    public SpamChecker(String[] data, TextComparatorMethod method) {
         this.emails = new ArrayList<>();
-        this.comparator = new LongestCommonSubsequenceComparator();
+        this.setTextComparatorMethod(method);
         this.processData(data);
     }
 
