@@ -9,6 +9,8 @@ public class CosineSimilarityComparator extends AbstractTextComparator {
         String[] t1Arr = this.processString(text1);
         String[] t2Arr = this.processString(text2);
 
+        // These two word count can be transformed using TF-IDF
+        // for better vector representation.
         HashMap<String, Integer> t1WordCount = getWordCount(t1Arr);
         HashMap<String, Integer> t2WordCount = getWordCount(t2Arr);
 
