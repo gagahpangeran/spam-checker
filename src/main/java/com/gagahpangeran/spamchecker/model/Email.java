@@ -26,6 +26,10 @@ public class Email {
         this.similarityScores.add(score);
     }
 
+    public void resetSimilarityScores() {
+        this.similarityScores.clear();
+    }
+
     public double getSpamProbability() {
         if (similarityScores.size() == 0)
             return 0;
