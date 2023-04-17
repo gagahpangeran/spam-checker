@@ -36,4 +36,19 @@ public class EmailTest {
         // the median is (3+2)/2 = 2.5
         Assertions.assertEquals(2.5, email.getSpamProbability());
     }
+
+    @Test
+    void resetSimilarityScores() {
+        Email email = new Email(0, "content");
+
+        for (int i = 1; i <= 4; i++) {
+            email.addSimilarityScore(i);
+        }
+
+        Assertions.assertEquals(2.5, email.getSpamProbability());
+
+        email.resetSimilarityScores();
+
+        Assertions.assertEquals(0, email.getSpamProbability());
+    }
 }
