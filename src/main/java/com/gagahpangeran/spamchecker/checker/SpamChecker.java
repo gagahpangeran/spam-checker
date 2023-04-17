@@ -53,6 +53,10 @@ public class SpamChecker {
     }
 
     public void calculateSpamProbability() {
+        for (Email email : emails) {
+            email.resetSimilarityScores();
+        }
+
         for (int i = 0; i < emails.size() - 1; i++) {
             for (int j = i + 1; j < emails.size(); j++) {
                 Email email1 = emails.get(i);
