@@ -33,7 +33,7 @@ public class Email {
         Collections.sort(similarityScores);
         int mid = similarityScores.size() / 2;
 
-        if (similarityScores.size() == 1)
+        if (similarityScores.size() % 2 == 1)
             return similarityScores.get(mid);
 
         return (similarityScores.get(mid) + similarityScores.get(mid - 1)) / 2;
